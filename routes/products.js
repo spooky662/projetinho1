@@ -19,13 +19,13 @@ router.get('/', function (req, res, next) {
 });
 
 //Rota para registrar novo produto
-router.post('/newProduct', async (req, res) => {
+router.post('/newProduct', auth.verifyToken, async (req, res) => {
     productController.createProduct(req, res);
 });
 
 //Rota para retornar todos os produtos
 router.get('/allProducts', auth.verifyToken, async (req, res) => {
-    productController.findAllProducts(res, res);
+    productController.findAllProducts(req, res);
 })
 
 //Rota para retornar um produto pelo id

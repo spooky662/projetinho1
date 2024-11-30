@@ -24,7 +24,7 @@ class ProductService {
     }
 
     //Metodo para retornar todos os produtos
-    async findAllProducts() {
+    async findAll() {
         try {
             const AllProducts = await this.Product.findAll();
             return AllProducts ? AllProducts : null;
